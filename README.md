@@ -7,10 +7,8 @@ Script requires a command line argument of a file containing usernames/hashes in
 If using Docker can use the bash function in your ~/.bash_aliases file
 
 ```
-checkhashes() {
-docker run -t -v $(pwd):/out/ bandrel/check_hashes:latest "/out/$*"
-}
+alias check_hashes="docker run -t -v $(pwd):$(pwd) bandrel/check_hashes:latest"
 ```
 
-This will allow you to input and output to the pwd. 
+only requirement is the file needs to be in the pwd and you need to fully qualify the filename or use `$(pwd)/`
 
